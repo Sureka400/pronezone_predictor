@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-primary-dark to-primary-secondary text-white font-sans antialiased;
+    background-attachment: fixed;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-glass-bg backdrop-blur-xl border border-glass-border rounded-2xl shadow-2xl;
+  }
+
+  .glass-nav {
+    @apply bg-primary-dark/80 backdrop-blur-xl border-b border-glass-border;
+  }
+
+  .glow-border {
+    @apply relative;
+  }
+
+  .glow-border::before {
+    @apply content-[''] absolute -inset-0.5 bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-teal rounded-2xl opacity-0 transition-opacity duration-300 -z-10;
+  }
+
+  .glow-border:hover::before {
+    @apply opacity-70;
+  }
+
+  .neon-glow {
+    @apply shadow-[0_0_20px_rgba(0,212,255,0.5)] hover:shadow-[0_0_30px_rgba(0,212,255,0.8)];
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent-cyan to-accent-purple text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-1 relative overflow-hidden;
+  }
+
+  .btn-secondary {
+    @apply glass-card text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .risk-high {
+    @apply text-risk-high bg-risk-high/20 border-risk-high/30;
+  }
+
+  .risk-medium {
+    @apply text-risk-medium bg-risk-medium/20 border-risk-medium/30;
+  }
+
+  .risk-low {
+    @apply text-risk-low bg-risk-low/20 border-risk-low/30;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .city-grid-bg {
+    background-image: 
+      linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 20s linear infinite;
+  }
+
+  .floating-particles::before,
+  .floating-particles::after {
+    @apply content-[''] absolute w-1 h-1 bg-accent-cyan rounded-full;
+    box-shadow: 
+      0 0 10px theme('colors.accent.cyan'),
+      100px 200px 0 theme('colors.accent.purple'),
+      200px 100px 0 theme('colors.accent.teal'),
+      300px 300px 0 theme('colors.accent.cyan'),
+      400px 150px 0 theme('colors.accent.purple');
+    animation: float 15s infinite linear;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-cyan to-accent-purple bg-clip-text text-transparent;
+  }
+
+  .neon-text {
+    @apply text-accent-cyan;
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-primary-dark/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent-cyan/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent-cyan/70;
+}
+
+/* Leaflet map dark theme */
+.leaflet-container {
+  @apply bg-primary-secondary;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply glass-card text-white;
+}
+
+.leaflet-popup-tip {
+  @apply bg-glass-bg;
+}
