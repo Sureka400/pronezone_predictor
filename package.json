@@ -10,16 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.1",
-    "framer-motion": "^10.16.16",
     "chart.js": "^4.4.0",
-    "react-chartjs-2": "^5.2.0",
-    "leaflet": "^1.9.4",
-    "react-leaflet": "^4.2.1",
-    "lucide-react": "^0.294.0",
     "clsx": "^2.0.0",
+    "framer-motion": "^10.16.16",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.294.0",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.20.1",
     "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {

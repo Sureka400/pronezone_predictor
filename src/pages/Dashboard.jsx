@@ -13,6 +13,7 @@ import {
 import GlassCard from '../components/GlassCard'
 import RiskBadge from '../components/RiskBadge'
 import SidebarFilters from '../components/SidebarFilters'
+import SimpleMap from '../components/SimpleMap'
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -197,54 +198,17 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Live Risk Map */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <GlassCard className="p-6 h-96">
+            <GlassCard className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-bold text-accent-cyan">Live Risk Heatmap</h2>
-                <div className="flex gap-2">
-                  <button className="px-3 py-1 bg-accent-cyan text-primary-dark rounded-lg text-sm font-medium">
-                    Street
-                  </button>
-                  <button className="px-3 py-1 bg-white/10 text-white/70 rounded-lg text-sm">
-                    Satellite
-                  </button>
-                  <button className="px-3 py-1 bg-white/10 text-white/70 rounded-lg text-sm">
-                    Dark
-                  </button>
-                </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="h-full bg-primary-secondary rounded-lg relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/20 via-transparent to-risk-high/20"></div>
-                
-                {/* Risk Zones */}
-                <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-risk-high/40 rounded-full animate-pulse"></div>
-                <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-risk-medium/40 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-1/3 left-1/4 w-10 h-10 bg-risk-low/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white/50">
-                    <MapPin size={48} className="mx-auto mb-2" />
-                    <p>Interactive map will load here</p>
-                    <p className="text-sm">Leaflet.js integration</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Legend */}
-              <div className="flex justify-center gap-6 mt-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-risk-high rounded-full"></div>
-                  <span className="text-sm text-white/70">High Risk</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-risk-medium rounded-full"></div>
-                  <span className="text-sm text-white/70">Medium Risk</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-risk-low rounded-full"></div>
-                  <span className="text-sm text-white/70">Safe Zone</span>
-                </div>
+              {/* Real Interactive Map */}
+              <div className="h-80 rounded-lg overflow-hidden">
+                <SimpleMap 
+                  height="320px" 
+                  zoom={13}
+                />
               </div>
             </GlassCard>
           </motion.div>
